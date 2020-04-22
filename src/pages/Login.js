@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './Login.css'
 import Header from './Header'
 import { AuthContext } from '../auth'
@@ -11,13 +11,10 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-
-
-    if (auth.user !== null) {
+    if (auth.login === 'login') {        
         return <Redirect to='/home' />
     }
-    
-    
+
     return (
         <div className='inicial'>
             <Header />
@@ -30,11 +27,11 @@ const Login = () => {
                                     <h3 className='text-center text-info'>Logar</h3>
                                     <div className='form-group'>
                                         <label for='username' className='text-info'>Usuário:</label>
-                                        <input type='text' name='username' id='username' className='form-control' placeholder='Digite seu e-mail' onChange={evt => {setEmail(evt.target.value)}} value={email} />
+                                        <input type='text' name='username' id='username' className='form-control' placeholder='Digite seu e-mail' onChange={evt => { setEmail(evt.target.value) }} value={email} />
                                     </div>
                                     <div className='form-group'>
                                         <label for='password' className='text-info'>Senha:</label><br />
-                                        <input type='password' name='password' id='password' className='form-control' placeholder='Digite sua senha' onChange={evt => {setPassword(evt.target.value)}} value={password} />
+                                        <input type='password' name='password' id='password' className='form-control' placeholder='Digite sua senha' onChange={evt => { setPassword(evt.target.value) }} value={password} />
                                     </div>
                                     {
                                         auth.signInUser.signInUserState.error !== '' &&
