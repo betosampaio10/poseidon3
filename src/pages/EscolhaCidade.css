@@ -1,0 +1,13 @@
+.escolhacidade {
+    background-color: #FFFFF0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+}
+
+.botao{
+    margin: 2px;
+}
